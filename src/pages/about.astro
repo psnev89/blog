@@ -1,25 +1,58 @@
 ---
+const pageTitle = "About Me";
+
+const identity = {
+  firstName: "Pedro",
+  country: "Portugal",
+  occupation: "Frontend Engineer",
+  hobbies: ["gaming", "sports", "gym"],
+};
+
+const skills = ["HTML", "CSS", "JavaScript", "Vue", "Astro", "Writing Docs"];
+
+const happy = true;
+const finished = false;
+const goal = 3;
 ---
 
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-        <a href="/">Home</a>
-        <a href="/about">About</a>
-        <a href="/blog">Blog</a>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{pageTitle}</title>
+  </head>
+  <body>
+    <a href="/">Home</a>
+    <a href="/about">About</a>
+    <a href="/blog">Blog</a>
 
-		<h1>About Me</h1>
+    <h1>{pageTitle}</h1>
 
-        <h2>... and my new Astro site!</h2>
+    <p>
+      Hi, my name is {identity.firstName} and I'm from {identity.country} and I'm
+      currently a {identity.occupation}
+    </p>
 
-        <p>I am following the Astro's introdutory tutorial for creating a blog website.</p>
+    <p>Some of my interests include:</p>
+    <ul>
+        {identity.hobbies.map(hobby => (
+            <li>{hobby}</li>
+        ))}
+    </ul>
 
-        <p>This seems awesome!</p>
-	</body>
+    <p>My skills are:</p>
+    <ul>
+        {skills.map(skill => (
+            <li>{skill}</li>
+        ))}
+    </ul>
+
+    {happy && <p>I am happy to be learning Astro!</p>}
+
+    {finished && <p>I've already finished this tutorial.</p>}
+
+    {goal === 3 ? <p>My goal is to finish in 3 days</p> : <p>My goal is not 3 days</p>}
+  </body>
 </html>
