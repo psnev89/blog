@@ -1,16 +1,17 @@
 ---
-import '../styles/global.css';
+import "../styles/global.css";
 
 // components
-import Footer from '../components/Footer.astro';
-import Header from '../components/Header.astro';
+import Greeting from "../components/Greeting";
 
 //layout
-import BaseLayout from '../layouts/BaseLayout.astro';
+import BaseLayout from "../layouts/BaseLayout.astro";
 
 const pageTitle = "Home Page";
 ---
 
 <BaseLayout pageTitle={pageTitle}>
-<h2>This is a slot</h2>
+  <h2>My first Astro blog</h2>
+
+  <Greeting client:load messages={["Hej", "Hallo", "Hola", "Habari"]} />
 </BaseLayout>
